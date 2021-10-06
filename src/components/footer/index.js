@@ -1,5 +1,5 @@
 import React from 'react';
-import { Break, Container, Column, Link, Row, Text, Title } from '../../jumbotron/styles/jumbotron';
+import { Break, Container, Column, Link, Row, Text, Title } from './styles/footer';
 
 export default function Footer({children, ...restProps}) {
     return <Container {...restProps}>{children}</Container>
