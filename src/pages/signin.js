@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from '../components';
+import { FooterContainer } from '../containers/footer';
 import { HeaderContainer } from '../containers/header';
 
 export default function Signin() {
@@ -7,6 +8,8 @@ export default function Signin() {
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
     
+    const isInvalid = password === '' || emailAddress === '';
+
     const handleSignin = (event) => {
         event.preventDefault();
         
@@ -15,6 +18,7 @@ export default function Signin() {
     }
     
     return (
+        <>
         <HeaderContainer>
             <Form>
                 <Form.Title>Sign In</Form.Title>
@@ -33,7 +37,7 @@ export default function Signin() {
                         placeholder="Password"
                         onChange={({ target }) => setPassword(target.value)} 
                     />
-                    <Form.Submit disabled={false} type="submit">
+                    <Form.Submit disabled={isInvalid} type="submit">
                         Sign In
                     </Form.Submit>
                     
@@ -46,5 +50,7 @@ export default function Signin() {
                 </Form.Base>
             </Form>
         </HeaderContainer>
+        <FooterContainer />
+    </>
     )
 }
