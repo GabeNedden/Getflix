@@ -10,7 +10,7 @@ export function HeaderContainer({ children }) {
                     to={ROUTES.HOME}
                     src="/images/misc/logo.svg"
                     alt="Getflix" />
-                <Header.ButtonLink to={ROUTES.SIGN_IN} Sign In />
+                <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
             </Header.Frame>
             {children}
         </Header>

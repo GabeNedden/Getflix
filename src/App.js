@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { Home, Browse, Signin, Signup } from './pages';
 import * as ROUTES from './constants/routes';
 
-export default function App() {
+export function App() {
   return (
     <Router>
         <Switch>
