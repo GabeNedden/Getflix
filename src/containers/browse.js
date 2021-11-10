@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { Header } from '../components';
+import React, { useState, useEffect, useContext } from 'react';
+import { Loading, Header } from '../components';
 import * as ROUTES from '../constants/routes';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
@@ -18,9 +18,17 @@ export function BrowseContainer() {
         photoURL: "1"
     };
     
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setLoading(false)
+    //     }, 3000);
+    // }, [user])
+    
     return profile.displayName ? (
         <>
-            <Header src="joker1" dontShowOnSmallViewPort>
+        {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
+        
+            <Header src="dune3.png" dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>
                         <Header.Logo to={ROUTES.HOME} src="/images/misc/logo.svg" alt="Netflix" />
@@ -54,11 +62,9 @@ export function BrowseContainer() {
                 </Header.Frame>
                 
                 <Header.Feature>
-                    <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
+                    <Header.FeatureCallOut>Watch Dune Now</Header.FeatureCallOut>
                     <Header.Text>
-                    Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
-                    City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
-                    futile attempt to feel like he's part of the world around him.
+                    Paul Atreides, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. Malevolent forces explode into conflict over the most precious resource in existence, only those who can conquer their own fear will survive.
                     </Header.Text>
                     <Header.PlayButton>Play</Header.PlayButton>
                 </Header.Feature>
